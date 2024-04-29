@@ -1,0 +1,12 @@
+<div *ngIf="isNotNull else errorContent"  id="search-result">
+  <!-- <img *ngFor="let img of images" [src]='img.urls.full' alt="images" /> -->
+    <img #imgContent *ngFor="let img of images" [src]='img.urls.small' alt="images" />
+  <!-- /* <img key={index} src={item.urls.small_s3} alt="images" /> */ -->
+</div>
+<ng-template #errorContent>
+  <h1>Sorry! Result not Found😓😓</h1>
+</ng-template>
+<ng-template *ngIf="!isLoading" #loader>
+  <h1>Loading....</h1>
+</ng-template>
+<button *ngIf="isNotNull" id="show-more-btn" (click)="showMoreImages()">show more</button>
